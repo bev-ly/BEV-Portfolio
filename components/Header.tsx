@@ -57,7 +57,7 @@ const Header = () => {
           transition={{ duration: 0.5 }}
           className="text-2xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent"
         >
-          John Smith
+          Beverly Napal
         </motion.h1>
         <div className="hidden md:flex items-center space-x-8">
           <nav className="flex space-x-8">

@@ -55,7 +55,7 @@ const Hero = () => {
         >
           <div className="h-[1px] w-12 bg-gray-300 dark:bg-gray-700"></div>
           <p className="text-xl text-gray-600 dark:text-gray-300 px-4">
-            Full Stack Developer
+            Web Developer
           </p>
           <div className="h-[1px] w-12 bg-gray-300 dark:bg-gray-700"></div>
         </motion.div>
