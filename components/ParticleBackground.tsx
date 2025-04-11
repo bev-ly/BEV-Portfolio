@@ -53,7 +53,7 @@ const ParticleBackground = () => {
     ctx.clearRect(0, 0, width, height)
 
     // Update and draw particles
-    particlesRef.current.forEach((particle, index) => {
+    particlesRef.current.forEach((particle, index) =>  {
       // Update position
       particle.x += particle.speedX
       particle.y += particle.speedY
@@ -83,7 +83,7 @@ const ParticleBackground = () => {
   }
 
   // Draw lines between nearby particles
-  const connectParticles = (particle: Particle, index: Particle[], ctx: CanvasRenderingContext2D) => {
+  const connectParticles = (particle: Particle, index: number, ctx: CanvasRenderingContext2D) => {
     const { width, height } = dimensions
     const maxDistance = Math.min(width, height) * 0.07
 
