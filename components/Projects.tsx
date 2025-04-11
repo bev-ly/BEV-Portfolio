@@ -3,46 +3,50 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { ExternalLink, Github } from "lucide-react";
+import { Container } from "@mui/material";
 
 const projects = [
   {
     id: 1,
-    title: "E-Commerce Platform",
+    title: "TechTopia",
     description:
-      "A full-stack e-commerce platform built with Next.js, TypeScript, and Stripe integration",
-    image: "/placeholder.svg?height=300&width=300",
-    tags: ["Next.js", "TypeScript", "Stripe", "Tailwind CSS"],
+      "A full-stack e-commerce platform with modern UI, cart functionality, and secure payments built with Next.js and TypeScript.",
+      image: "/TechTopia.png?height=300&width=300",
+    tags: ["Next.js", "TypeScript", "Framer Motion", "Tailwind CSS", "PostgreSQL"],
     liveUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/bev-ly/TechTopia-ecommerce",
+    status: "In Progress",
   },
   {
     id: 2,
     title: "Task Management App",
     description:
-      "A React-based task management application with drag-and-drop functionality",
-    image: "/placeholder.svg?height=300&width=300",
+      "Productivity application with drag-and-drop task boards, user authentication, and real-time updates.",
+    image: "/task-management.jpg",
     tags: ["React", "Redux", "Node.js", "MongoDB"],
     liveUrl: "#",
     githubUrl: "#",
+    status: "Coming Soon",
   },
   {
     id: 3,
     title: "Real-time Chat Application",
-    description: "A real-time chat application using WebSockets and React",
-    image: "/placeholder.svg?height=300&width=300",
+    description: "Instant messaging platform with rooms, typing indicators, and message history.",
+    image: "/chat-app.jpg",
     tags: ["React", "Socket.io", "Express", "Styled Components"],
     liveUrl: "#",
     githubUrl: "#",
+    status: "Coming Soon",
   },
   {
     id: 4,
     title: "Portfolio Website",
     description:
-      "A responsive portfolio website built with Next.js and Framer Motion",
-    image: "/placeholder.svg?height=300&width=300",
-    tags: ["Next.js", "Framer Motion", "Tailwind CSS"],
-    liveUrl: "#",
-    githubUrl: "#",
+      "Responsive personal portfolio showcasing projects with clean animations and dark mode support.",
+      image: "/potfolio-svg.PNG?height=300&width=300",
+    tags: ["HTML", "CSS", "JavaScript"],
+    liveUrl: "https://bev-ly.github.io/PORTFOLIO-in-HTML/",
+    githubUrl: "https://github.com/bev-ly/PORTFOLIO-in-HTML",
   },
 ];
 
@@ -66,31 +70,31 @@ const Projects = () => {
       transition: {
         type: "spring",
         stiffness: 100,
+        damping: 10,
       },
     },
   };
 
   return (
-    <section id="projects" className="py-24 bg-white dark:bg-gray-900">
-      <div className="container mx-auto px-6">
-        <motion.h2
-          className="text-4xl font-bold mb-4 text-center bg-gradient-to-r from-cyan-600 to-blue-600 dark:from-cyan-400 dark:to-blue-400 bg-clip-text text-transparent"
+    <section id="projects" className="py-24 bg-gray-50 dark:bg-gray-900">
+      <Container maxWidth="lg" className="px-6">
+        <motion.div
+          className="text-center mb-16"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
         >
-          My Projects
-        </motion.h2>
-        <motion.p
-          className="text-gray-600 dark:text-gray-300 text-center max-w-2xl mx-auto mb-16"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          Here are some of my recent web development projects
-        </motion.p>
+          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-cyan-600 to-blue-600 dark:from-cyan-400 dark:to-blue-400 bg-clip-text text-transparent">
+            My Projects
+          </h2>
+          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto text-lg">
+            Here are some of my featured projects. Each represents unique challenges and solutions.
+          </p>
+        </motion.div>
+
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -100,81 +104,104 @@ const Projects = () => {
             <motion.div
               key={project.id}
               variants={itemVariants}
-              whileHover={{
-                scale: 1.02,
-                boxShadow:
-                  "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-              }}
-              className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md transition-all duration-300 border border-gray-100 dark:border-gray-700 flex flex-col"
+              whileHover={{ y: -5 }}
+              className="group relative overflow-hidden rounded-xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700 flex flex-col h-full"
             >
-              <div className="relative overflow-hidden group h-64">
+              {/* Status badge */}
+              {project.status && (
+                <div className={`absolute top-4 right-4 z-10 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-lg ${
+                  project.status === "In Progress" ? "bg-yellow-500" : 
+                  project.status === "Coming Soon" ? "bg-purple-500" : "bg-gray-500"
+                }`}>
+                  {project.status}
+                </div>
+              )}
+              
+              {/* Project image */}
+              <div className="relative h-64 overflow-hidden">
                 <Image
-                  src={project.image || "/placeholder.svg"}
+                   src={project.image || "/potfolio-svg.PNG" || "TechTopia.png"}
                   alt={project.title}
-                  width={600}
-                  height={400}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                  <div className="p-6 w-full">
-                    <h3 className="text-white text-xl font-semibold">
-                      {project.title}
-                    </h3>
-                  </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                  <p className="text-white text-sm md:text-base">{project.description}</p>
                 </div>
               </div>
+
+              {/* Project content */}
               <div className="p-6 flex-grow">
-                <h3 className="text-xl font-semibold mb-2 dark:text-white">
-                  {project.title}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2 mb-4">
+  <div className="flex justify-between items-start mb-3">
+    <h3 className="text-xl font-bold dark:text-white">
+      {project.title}
+    </h3>
+    <div className="flex space-x-3">
+      <a
+        href={project.liveUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`p-2 rounded-full transition-colors flex items-center ${
+          project.status
+            ? "text-gray-400 dark:text-gray-600 cursor-not-allowed"
+            : "text-cyan-600 dark:text-cyan-400 hover:bg-cyan-50 dark:hover:bg-gray-700"
+        }`}
+        aria-label="Live demo"
+      >
+        <ExternalLink size={18} className="mr-1" />
+        <span className="text-xs">Live Demo</span>
+      </a>
+      <a
+        href={project.githubUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`p-2 rounded-full transition-colors ${
+          project.status
+            ? "text-gray-400 dark:text-gray-600 cursor-not-allowed"
+            : "text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700"
+        }`}
+        aria-label="View code"
+      >
+        <Github size={18} />
+      </a>
+    </div>
+  </div>
+  
+                
+                <div className="flex flex-wrap gap-2 mt-4">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium"
+                      className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
               </div>
-              <div className="p-6 pt-0 flex justify-between">
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-cyan-600 dark:text-cyan-400 hover:text-cyan-800 dark:hover:text-cyan-300 font-medium inline-flex items-center transition-colors"
-                >
-                  Live Demo <ExternalLink size={16} className="ml-1" />
-                </a>
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 font-medium inline-flex items-center transition-colors"
-                >
-                  Code <Github size={16} className="ml-1" />
-                </a>
-              </div>
             </motion.div>
           ))}
         </motion.div>
-        <div className="text-center mt-12">
-          <motion.a
-            href="https://github.com/johnsmith"
+
+        <motion.div 
+          className="text-center mt-16"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          viewport={{ once: true }}
+        >
+          <a
+            href="https://github.com/bev-ly"
             target="_blank"
             rel="noopener noreferrer"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center bg-transparent border-2 border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 px-6 py-2 rounded-full font-medium hover:border-cyan-600 dark:hover:border-cyan-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition duration-300"
+            className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-cyan-600 to-blue-600 text-white rounded-full font-medium hover:shadow-lg transition-all duration-300 hover:from-cyan-700 hover:to-blue-700"
           >
-            See More on GitHub <Github size={18} className="ml-2" />
-          </motion.a>
-        </div>
-      </div>
+            Explore More Projects on GitHub
+            <Github size={18} className="ml-2" />
+          </a>
+        </motion.div>
+      </Container>
     </section>
   );
 };

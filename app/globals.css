@@ -121,6 +121,12 @@ html {
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
-  }
+    font-family: 'Poppins', sans-serif;
+    background-color: #faf6f9;
+    color: #5a5a72;
+}
+
+.gradient-bg {
+    background: linear-gradient(135deg, #f0e6ff 0%, #e6f9ff 50%, #ffe6f0 100%);
+}
 }

@@ -64,7 +64,7 @@ const About = () => {
               About Me
             </h2>
             <p className="text-gray-600 dark:text-gray-300 mb-6 text-lg">
-              I&lsquo;m Beverly Napal, a passionate Full Stack Developer with 2+ years
+              I&lsquo;m Beverly Napal, a passionate Web Developer with 2+ years
               of experience building web applications. I specialize in creating
               responsive, user-friendly websites and applications using modern
               technologies.
@@ -74,32 +74,43 @@ const About = () => {
               website in college. Since then, I&lsquo;ve worked with startups and
               established companies to deliver high-quality digital solutions
               that solve real-world problems.
+
+              
             </p>
+            
             <div className="mb-8">
               <h3 className="text-xl font-semibold mb-3 dark:text-white">
                 Work Experience
               </h3>
               <div className="space-y-4">
                 <div>
-                  <p className="font-medium dark:text-white">
-                    Senior Developer at TechCorp
+                <div>
+                <p className="font-medium dark:text-white">
+                    Junior Web Developer at WYLog Inc. - Intern
                   </p>
                   <p className="text-gray-500 dark:text-gray-400 text-sm">
-                    2020 - Present
+                  07/2020 -08/2020
+                  </p>
+                </div>
+                  <p className="font-medium dark:text-white">
+                    Junior Web Developer at WYLog Inc. - Part timer
+                  </p>
+                  <p className="text-gray-500 dark:text-gray-400 text-sm">
+                  01/2023 - 01/2024
                   </p>
                 </div>
                 <div>
                   <p className="font-medium dark:text-white">
-                    Web Developer at StartupX
+                    Web Developer at WYLog Inc. - Full time
                   </p>
                   <p className="text-gray-500 dark:text-gray-400 text-sm">
-                    2018 - 2020
+                  01/2024- 03/2025
                   </p>
                 </div>
               </div>
             </div>
             <motion.a
-              href="#"
+              href="Beverly_Z_Napal.pdf.pdf"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="inline-flex items-center bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transition duration-300"

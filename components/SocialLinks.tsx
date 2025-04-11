@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {  Github, Linkedin, Mail, } from "lucide-react";
-import type React from "react"; // Added import for React
+import { Github, Linkedin, Mail } from "lucide-react";
+import type React from "react";
 
 interface SocialLinkProps {
   href: string;
@@ -10,19 +10,23 @@ interface SocialLinkProps {
   label: string;
 }
 
-const SocialLink: React.FC<SocialLinkProps> = ({ href, icon, label }) => (
-  <motion.a
-    href={href}
-    target="_blank"
-    rel="noopener noreferrer"
-    whileHover={{ scale: 1.2, y: -3 }}
-    whileTap={{ scale: 0.9 }}
-    className="text-gray-400 hover:text-cyan-400 transition-colors duration-200"
-  >
-    <span className="sr-only">{label}</span>
-    {icon}
-  </motion.a>
-);
+const SocialLink: React.FC<SocialLinkProps> = ({ href, icon, label }) => {
+  const isEmail = label === "Email";
+  
+  return (
+    <motion.a
+      href={isEmail ? `mailto:${href}` : href}
+      target="_blank"
+      rel="noopener noreferrer"
+      whileHover={{ scale: 1.2, y: -3 }}
+      whileTap={{ scale: 0.9 }}
+      className="text-gray-400 hover:text-cyan-400 transition-colors duration-200"
+    >
+      <span className="sr-only">{label}</span>
+      {icon}
+    </motion.a>
+  );
+};
 
 const SocialLinks: React.FC<{ className?: string }> = ({ className }) => {
   const socialLinks = [
@@ -36,18 +40,8 @@ const SocialLinks: React.FC<{ className?: string }> = ({ className }) => {
       icon: <Linkedin size={24} />,
       label: "LinkedIn",
     },
-    // {
-    //   href: "https://twitter.com/johnsmith",
-    //   icon: <Twitter size={24} />,
-    //   label: "Twitter",
-    // },
-    // {
-    //   href: "https://codepen.io/johnsmith",
-    //   icon: <Codepen size={24} />,
-    //   label: "CodePen",
-    // },
     {
-      href: "mailto:napalbeverly68@gmail.com",
+      href: "napalbeverly68@gmail.com",
       icon: <Mail size={24} />,
       label: "Email",
     },
