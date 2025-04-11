@@ -74,7 +74,7 @@ const Contact = () => {
     { icon: <Phone size={24} />, text: "+639198503235", label: "Phone" },
     {
       icon: <MapPin size={24} />,
-      text: "Purok Buenavista, Tubo-tubo, Cagwait, Surigao Del Sur 8304",
+      text: "Cagwait, Surigao Del Sur 8304",
       label: "Location",
     },
   ];
