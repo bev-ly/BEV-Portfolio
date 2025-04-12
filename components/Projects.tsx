@@ -22,7 +22,7 @@ const projects = [
     title: "Task Management App",
     description:
       "Productivity application with drag-and-drop task boards, user authentication, and real-time updates.",
-    image: "/task-management.jpg",
+    image: "/task.png",
     tags: ["React", "Redux", "Node.js", "MongoDB"],
     liveUrl: "#",
     githubUrl: "#",
@@ -32,7 +32,7 @@ const projects = [
     id: 3,
     title: "Real-time Chat Application",
     description: "Instant messaging platform with rooms, typing indicators, and message history.",
-    image: "/chat-app.jpg",
+    image: "/none.jpg",
     tags: ["React", "Socket.io", "Express", "Styled Components"],
     liveUrl: "#",
     githubUrl: "#",
@@ -120,7 +120,7 @@ const Projects = () => {
               {/* Project image */}
               <div className="relative h-64 overflow-hidden">
                 <Image
-                   src={project.image || "/potfolio-svg.PNG" || "TechTopia.png"}
+                   src={project.image || "/potfolio-svg.PNG" || "TechTopia.png" || "/task.png"}
                   alt={project.title}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
