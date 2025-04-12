@@ -43,7 +43,7 @@ const projects = [
     title: "Portfolio Website",
     description:
       "Responsive personal portfolio showcasing projects with clean animations and dark mode support.",
-      image: "/potfolio-svg.PNG?height=300&width=300",
+      image: "/portfolio.png?height=300&width=300",
     tags: ["HTML", "CSS", "JavaScript"],
     liveUrl: "https://bev-ly.github.io/PORTFOLIO-in-HTML/",
     githubUrl: "https://github.com/bev-ly/PORTFOLIO-in-HTML",
@@ -120,7 +120,7 @@ const Projects = () => {
               {/* Project image */}
               <div className="relative h-64 overflow-hidden">
                 <Image
-                   src={project.image || "/potfolio-svg.PNG" || "TechTopia.png" || "/task.png" || "realtimechat.png"}
+                   src={project.image || "/portfolio.png" || "TechTopia.png" || "/task.png" || "realtimechat.png"}
                   alt={project.title}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
