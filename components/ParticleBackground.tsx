@@ -76,36 +76,36 @@ const ParticleBackground = () => {
       ctx.fill()
 
       // Connect particles that are close to each other
-      connectParticles(particle, index, ctx)
+      connectParticles(particlesRef.current, index, ctx)
     })
 
     animationRef.current = requestAnimationFrame(animateParticles)
   }
 
   // Draw lines between nearby particles
-  const connectParticles = (particle: Particle, index: number, ctx: CanvasRenderingContext2D) => {
+  const connectParticles = (particles: Particle[], index: number, ctx: CanvasRenderingContext2D) => {
     const { width, height } = dimensions
     const maxDistance = Math.min(width, height) * 0.07
-
-    for (let i = index + 1; i < particlesRef.current.length; i++) {
-      const particle2 = particlesRef.current[i]
-      const dx = particle.x - particle2.x
-      const dy = particle.y - particle2.y
+  
+    for (let i = index + 1; i < particles.length; i++) {
+      const particle2 = particles[i]
+      const dx = particles[index].x - particle2.x
+      const dy = particles[index].y - particle2.y
       const distance = Math.sqrt(dx * dx + dy * dy)
-
+  
       if (distance < maxDistance) {
         const opacity = 1 - distance / maxDistance
-
+  
         ctx.beginPath()
-        ctx.moveTo(particle.x, particle.y)
+        ctx.moveTo(particles[index].x, particles[index].y)
         ctx.lineTo(particle2.x, particle2.y)
-
+  
         if (isDarkMode) {
           ctx.strokeStyle = `rgba(56, 189, 248, ${opacity * 0.2})`
         } else {
           ctx.strokeStyle = `rgba(14, 165, 233, ${opacity * 0.1})`
         }
-
+  
         ctx.lineWidth = 1
         ctx.stroke()
       }
