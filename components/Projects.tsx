@@ -32,7 +32,7 @@ const projects = [
     id: 3,
     title: "Real-time Chat Application",
     description: "Instant messaging platform with rooms, typing indicators, and message history.",
-    image: "/none.jpg",
+    image: "/realtimechat.png?height=300&width=300",
     tags: ["React", "Socket.io", "Express", "Styled Components"],
     liveUrl: "#",
     githubUrl: "#",
@@ -120,7 +120,7 @@ const Projects = () => {
               {/* Project image */}
               <div className="relative h-64 overflow-hidden">
                 <Image
-                   src={project.image || "/potfolio-svg.PNG" || "TechTopia.png" || "/task.png"}
+                   src={project.image || "/potfolio-svg.PNG" || "TechTopia.png" || "/task.png" || "realtimechat.png"}
                   alt={project.title}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
