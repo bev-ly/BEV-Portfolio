@@ -6,17 +6,17 @@ import { ExternalLink, Github } from "lucide-react";
 import { Container } from "@mui/material";
 
 const projects = [
-  {
+ {
     id: 1,
     title: "TechTopia",
     description:
-      "A full-stack e-commerce platform with modern UI, cart functionality, and secure payments built with Next.js and TypeScript.",
-      image: "/TechTopia.png?height=300&width=300",
-    tags: ["Next.js", "TypeScript", "Framer Motion", "Tailwind CSS", "PostgreSQL"],
-    liveUrl: "#",
-    githubUrl: "https://github.com/bev-ly/TechTopia-ecommerce",
-    status: "In Progress",
+      "A modern laptop-focused e-commerce app with sleek UI, cart system, order tracking, and secure checkout built with React and TypeScript.",
+    image: "/TechTopia.png?height=300&width=300",
+    tags: ["React", "TypeScript", "Tailwind CSS", "Supabase", "Vite"],
+    liveUrl: "https://ubiquitous-cranachan-f57399.netlify.app/",
+    githubUrl: "https://github.com/bev-ly/tech-topia",
   },
+  
   {
     id: 2,
     title: "Task Management App",
